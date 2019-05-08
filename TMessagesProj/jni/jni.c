@@ -11,7 +11,6 @@
 #include <sys/stat.h>
 #include "image.h"
 #include "libtgvoip/client/android/tg_voip_jni.h"
-
 int registerNativeTgNetFunctions(JavaVM *vm, JNIEnv *env);
 int videoOnJNILoad(JavaVM *vm, JNIEnv *env);
 
@@ -203,12 +202,12 @@ int64_t listdir(const char *fileName, int32_t mode, int32_t docType, int64_t tim
                 if (mode == 0) {
                     value += 512 * attrib.st_blocks;
                 } else if (mode == 1) {
-                    if (attrib.st_atim.tv_sec != 0) {
-                        if (attrib.st_atim.tv_sec < time) {
+                    if (attrib.st_atime != 0) {
+                        if (attrib.st_atime < time) {
                             remove(buff);
                         }
                     } else {
-                        if (attrib.st_mtim.tv_sec < time) {
+                        if (attrib.st_mtime < time) {
                             remove(buff);
                         }
                     }

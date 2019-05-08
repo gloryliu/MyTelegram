@@ -62,14 +62,14 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file("config/release.keystore")
+            storeFile file("release.keystore")
             storePassword RELEASE_STORE_PASSWORD
             keyAlias RELEASE_KEY_ALIAS
             keyPassword RELEASE_KEY_PASSWORD
         }
 
         release {
-            storeFile file("config/release.keystore")
+            storeFile file("release.keystore")
             storePassword RELEASE_STORE_PASSWORD
             keyAlias RELEASE_KEY_ALIAS
             keyPassword RELEASE_KEY_PASSWORD
@@ -81,7 +81,7 @@ android {
             debuggable true
             jniDebuggable true
             signingConfig signingConfigs.debug
-            applicationIdSuffix ".beta"
+            applicationIdSuffix ""
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -100,14 +100,14 @@ android {
             debuggable false
             jniDebuggable false
             signingConfig signingConfigs.debug
-            applicationIdSuffix ".beta"
+//            applicationIdSuffix ".beta"
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
         release {
-            debuggable false
-            jniDebuggable false
+            debuggable true
+            jniDebuggable true
             signingConfig signingConfigs.release
             minifyEnabled true
             shrinkResources false
@@ -137,6 +137,7 @@ android {
     flavorDimensions "minApi"
 
     productFlavors {
+
         armv7 {
             ndk {
                 abiFilters "armeabi-v7a"
@@ -145,101 +146,101 @@ android {
                 abiVersionCode = 1
             }
         }
-        x86 {
-            ndk {
-                abiFilters "x86"
-            }
-            ext {
-                abiVersionCode = 2
-            }
-        }
-        armv7_SDK23 {
-            ndk {
-                abiFilters "armeabi-v7a"
-            }
-            sourceSets.debug {
-                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
-            }
-            sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
-            }
-            minSdkVersion 23
-            ext {
-                abiVersionCode = 3
-            }
-        }
-        x86_SDK23 {
-            ndk {
-                abiFilters "x86"
-            }
-            sourceSets.debug {
-                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
-            }
-            sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
-            }
-            minSdkVersion 23
-            ext {
-                abiVersionCode = 4
-            }
-        }
-        arm64 {
-            ndk {
-                abiFilters "arm64-v8a"
-            }
-            ext {
-                abiVersionCode = 5
-            }
-        }
-        x64 {
-            ndk {
-                abiFilters "x86_64"
-            }
-            ext {
-                abiVersionCode = 6
-            }
-        }
-        arm64_SDK23 {
-            ndk {
-                abiFilters "arm64-v8a"
-            }
-            sourceSets.debug {
-                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
-            }
-            sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
-            }
-            minSdkVersion 23
-            ext {
-                abiVersionCode = 7
-            }
-        }
-        x64_SDK23 {
-            ndk {
-                abiFilters "x86_64"
-            }
-            sourceSets.debug {
-                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
-            }
-            sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
-            }
-            minSdkVersion 23
-            ext {
-                abiVersionCode = 8
-            }
-        }
-        afat {
-            sourceSets.debug {
-                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
-            }
-            sourceSets.release {
-                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
-            }
-            ext {
-                abiVersionCode = 0
-            }
-        }
+//        x86 {
+//            ndk {
+//                abiFilters "x86"
+//            }
+//            ext {
+//                abiVersionCode = 2
+//            }
+//        }
+//        armv7_SDK23 {
+//            ndk {
+//                abiFilters "armeabi-v7a"
+//            }
+//            sourceSets.debug {
+//                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
+//            }
+//            sourceSets.release {
+//                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+//            }
+//            minSdkVersion 23
+//            ext {
+//                abiVersionCode = 3
+//            }
+//        }
+//        x86_SDK23 {
+//            ndk {
+//                abiFilters "x86"
+//            }
+//            sourceSets.debug {
+//                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
+//            }
+//            sourceSets.release {
+//                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+//            }
+//            minSdkVersion 23
+//            ext {
+//                abiVersionCode = 4
+//            }
+//        }
+//        arm64 {
+//            ndk {
+//                abiFilters "arm64-v8a"
+//            }
+//            ext {
+//                abiVersionCode = 5
+//            }
+//        }
+//        x64 {
+//            ndk {
+//                abiFilters "x86_64"
+//            }
+//            ext {
+//                abiVersionCode = 6
+//            }
+//        }
+//        arm64_SDK23 {
+//            ndk {
+//                abiFilters "arm64-v8a"
+//            }
+//            sourceSets.debug {
+//                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
+//            }
+//            sourceSets.release {
+//                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+//            }
+//            minSdkVersion 23
+//            ext {
+//                abiVersionCode = 7
+//            }
+//        }
+//        x64_SDK23 {
+//            ndk {
+//                abiFilters "x86_64"
+//            }
+//            sourceSets.debug {
+//                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
+//            }
+//            sourceSets.release {
+//                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+//            }
+//            minSdkVersion 23
+//            ext {
+//                abiVersionCode = 8
+//            }
+//        }
+//        afat {
+//            sourceSets.debug {
+//                manifest.srcFile 'config/debug/AndroidManifest_SDK23.xml'
+//            }
+//            sourceSets.release {
+//                manifest.srcFile 'config/release/AndroidManifest_SDK23.xml'
+//            }
+//            ext {
+//                abiVersionCode = 0
+//            }
+//        }
     }
 
     applicationVariants.all { variant ->
@@ -270,8 +271,9 @@ android {
 
         externalNativeBuild {
             ndkBuild {
-                arguments "NDK_APPLICATION_MK:=jni/Application.mk", "APP_PLATFORM:=android-16", "-j8"
-                abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+                arguments "NDK_APPLICATION_MK:=jni/Application.mk", "APP_PLATFORM:=android-24"
+//                abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
+                abiFilters "armeabi-v7a"
             }
         }
 
