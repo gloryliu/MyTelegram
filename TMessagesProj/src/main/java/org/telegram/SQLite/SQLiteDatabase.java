@@ -8,6 +8,8 @@
 
 package org.telegram.SQLite;
 
+import com.google.android.exoplayer2.util.Log;
+
 import org.telegram.messenger.BuildVars;
 import org.telegram.messenger.FileLog;
 import org.telegram.messenger.ApplicationLoader;
@@ -35,6 +37,7 @@ public class SQLiteDatabase {
 	}
 
     public SQLitePreparedStatement executeFast(String sql) throws SQLiteException {
+		Log.d("LIU","sql = "+sql);
         return new SQLitePreparedStatement(this, sql, true);
     }
 

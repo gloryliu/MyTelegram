@@ -40,6 +40,7 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.TextWatcher;
 import android.text.style.ImageSpan;
+import android.util.Log;
 import android.util.Property;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -2062,6 +2063,22 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             return;
         }
         CharSequence message = messageEditText.getText();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i=0;i<22*10000;i++){
+                    Log.d("LIU","send msg "+i);
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    String msg = "Zhen :"+i+"哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈";
+                    processSendingText(msg);
+                }
+            }
+        }).start();
+
         if (processSendingText(message)) {
             messageEditText.setText("");
             lastTypingTimeSend = 0;
