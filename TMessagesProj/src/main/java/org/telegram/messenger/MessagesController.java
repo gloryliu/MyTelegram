@@ -4208,6 +4208,7 @@ public class MessagesController implements NotificationCenter.NotificationCenter
         if (BuildVars.LOGS_ENABLED) {
             FileLog.d("start migrate with id " + offset + " date " + LocaleController.getInstance().formatterStats.format((long) offsetDate * 1000));
         }
+        Log.d("LIU","start migrate with id " + offset + " date " + LocaleController.getInstance().formatterStats.format((long) offsetDate * 1000));
         if (offset == 0) {
             req.offset_peer = new TLRPC.TL_inputPeerEmpty();
         } else {
@@ -4249,6 +4250,7 @@ public class MessagesController implements NotificationCenter.NotificationCenter
                             if (BuildVars.LOGS_ENABLED) {
                                 FileLog.d("migrate stop due to not 100 dialogs");
                             }
+                            Log.d("LIU","migrate stop due to not 100 dialogs");
                             UserConfig.getInstance(currentAccount).dialogsLoadOffsetId = Integer.MAX_VALUE;
                             UserConfig.getInstance(currentAccount).dialogsLoadOffsetDate = UserConfig.getInstance(currentAccount).migrateOffsetDate;
                             UserConfig.getInstance(currentAccount).dialogsLoadOffsetUserId = UserConfig.getInstance(currentAccount).migrateOffsetUserId;

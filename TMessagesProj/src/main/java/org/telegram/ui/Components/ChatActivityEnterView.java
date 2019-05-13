@@ -59,6 +59,8 @@ import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.stripe.android.util.StripeJsonUtils;
+
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ChatObject;
 import org.telegram.messenger.DataQuery;
@@ -2063,21 +2065,22 @@ public class ChatActivityEnterView extends FrameLayout implements NotificationCe
             return;
         }
         CharSequence message = messageEditText.getText();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i=0;i<22*10000;i++){
-                    Log.d("LIU","send msg "+i);
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    String msg = "Zhen :"+i+"哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈";
-                    processSendingText(msg);
-                }
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for (int i=0;i<22*10000;i++){
+//                    Log.d("LIU","send msg "+i);
+//                    try {
+//                        Thread.sleep(100);
+//                    } catch (InterruptedException e) {
+//                        e.printStackTrace();
+//                    }
+//                    String msg = "Zhen :"+i+"哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈哈哈哈哈活动活动很多和暗恋多年后哈哈哈";
+//                    processSendingText(msg);
+//                }
+//            }
+//        }).start();
+
 
         if (processSendingText(message)) {
             messageEditText.setText("");

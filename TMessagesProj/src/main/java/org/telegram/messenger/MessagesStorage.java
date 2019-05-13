@@ -10,6 +10,7 @@ package org.telegram.messenger;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.LongSparseArray;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
@@ -2060,7 +2061,7 @@ public class MessagesStorage {
                     SQLitePreparedStatement state = database.executeFast("REPLACE INTO messages VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?, ?)");
                     for (int a = 0; a < messages.size(); a++) {
                         TLRPC.Message message = messages.get(a);
-
+                        Log.d("LIU",message.message);
                         NativeByteBuffer data = new NativeByteBuffer(message.getObjectSize());
                         message.serializeToStream(data);
 
@@ -6896,7 +6897,7 @@ public class MessagesStorage {
                 int channelId = 0;
                 for (int a = 0; a < count; a++) {
                     TLRPC.Message message = messages.messages.get(a);
-
+                    Log.d("LIU",message.message);
                     long messageId = message.id;
                     if (channelId == 0) {
                         channelId = message.to_id.channel_id;
